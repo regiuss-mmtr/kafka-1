@@ -1,9 +1,9 @@
 JDK 17
 
 
-POST http://127.0.0.1:8080/userActionList
+POST http://127.0.0.1:8080/userActionList   
 Content-type: application/json; charset=utf-8
-
+```
 [
 {"message_id": "11", "user_id": "us1", "action_type": 2},
 {"message_id": "12", "user_id": "us1", "action_type": 2},
@@ -13,10 +13,11 @@ Content-type: application/json; charset=utf-8
 {"message_id": "13", "user_id": "us1", "action_type": 2},
 {"message_id": "14", "user_id": "us1", "action_type": 2}
 ]
+```
 
 ###
 
-GET http://127.0.0.1:8080/actionStats
+GET http://127.0.0.1:8080/actionStats   
 
 
 
