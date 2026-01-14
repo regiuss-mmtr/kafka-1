@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+kafka:
+  topic:
+    connection: KafkaCourse-UserAction-ClickStream
+    limit: KafkaCourse-UserLimitReach
+  actor:
+    countThreshold: 5
+    windowPeriod: PT10M
+    cleanupPeriod: PT5M
+  connection:
+    consumer:
+      bootstrap:
+        servers: localhost:9092
+      group:
+        id: KafkaCourse-lecture7-UserAction
+      key:
+        deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable:
+        auto:
+          commit: false
+      auto:
+        offset:
+          reset: earliest
+    producer:
+      client:
+        id: KafkaCourse-lecture7-UserAction
+      bootstrap:
+        servers: localhost:9092
+      key:
+        serializer: org.apache.kafka.common.serialization.StringSerializer
+  limit:
+    producer:
+      client:
+        id: KafkaCourse-lecture7-UserLimitReach
+      bootstrap:
+        servers: localhost:9092
+      key:
+        serializer: org.apache.kafka.common.serialization.StringSerializer
